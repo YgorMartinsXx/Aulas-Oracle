@@ -1,0 +1,38 @@
+                    Structured Query Language
+
+
+1 - DML = Data Manipulation Language. Sublinguagem dentro do SQL, a qual nos permitem manipular dados  seja selecionando, inserindo, atualizando ou deletando. 
+SELECT/INSERT/UPDATE/DELETE/MERGE
+
+2 - DDL = Data Definition Language. Sublinguagem dentro do SQL, a qual nos permitem criar tabelas, alteralas, excluilas, renomealas entre outras funções. 
+CREATE/ALTER/DROP/RENAME/TRUNCATE/COMENT
+
+3 - DQL = Data Query Language. Sublinguagem dentro do SQL, a qual nos permitem consultar dados, seja uma consulta generalizada ou restrita a informações especificas. 
+SELECT/FROM/WHERE/GROUP BY/ORDER BY/HAVING
+
+4 - DCL = Data Control Language. Sublinguagem dentro do SQL, a qual nos permitem regerenciar permições/privilegios e controle de transações. 
+GRANT/REVOKE/COMMIT/ROLLBACK/SAVEPONT  
+
+5 - Ao concatenar strings em uma consulta (SELECT) First_name || ' ' || ', salário' || salary "Funcionario"
+neste exemplo concatenamos strings com aspas simples ('') e declaramos um alias com aspas duplas("") e usamos a barra (||) para fazer a concatenação.
+
+6 - Caso haja aspas dentro de uma string declarada, podemos usar o operador alternativo. No caso usamos o 'q' para declararmos qual sera o operador alternativo.
+SELECT department_name || q'[ departament's Manager ID: ]'
+Neste exemplo declaramos o operador alternativo '[]', pois ele é o primeiro a ser usado dentro da string após o 'q'.
+
+7 - Podemos usar a clausula (distinct) para que não apareça valores repetidos no SELECT.
+
+8 - Usaremos a clausula LIKE para executar pesquisas, onde havera uma comparacação onde algum valor coincida com o escolhido.
+
+9 - Usaremos o operador percent '%' para declararmos que na pesquisa se pode completar qualquer valor após ele.
+Exemplo 8/9     SELECT First_name, last_name, job_ID
+                FROM employees
+                WHERE First_name LIKE 'sa%'
+Esta consulta reotornara qualquer Funcionario que tenha as sejam 'sa'(sarah,sabrina etc)
+
+10 - usaremos o operador underline '_' com a mesma função do percent '%', porém para um unico valor (WHERE First_name = 'sar_'), 
+neste caso aceitará somente um unico valor após o 'r'. Onde o unico cadastro que se aplica é 'sara'
+
+11 - Operador IN é usado para verificação de dominio.
+
+12 - 
