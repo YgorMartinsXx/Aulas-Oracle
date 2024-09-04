@@ -80,9 +80,58 @@ WHERE manager_id IS NULL;
 -- AND 
 SELECT employee_id, last_name, job_id, salary
 FROM employees
+WHERE salary >= 5000 AND job_id = 'IT_PROG';
+-- Retorna somente aqueles que tem o salario maior ou igual a 5000, e que tenha o job_id 'It_PROG'
+
+-- OR
+SELECT employee_id, last_name, job_id, salary
+FROM employees
 WHERE salary >= 5000 AND job_id = 'IT_PROG'
---Retorna somente aqueles que tem o salario maior ou igual a 500, e que tenha o job_id 'It_PROG'
+-- Retorna todos aqueles que atendam pelo menos uma dessas condições.
+
+-- NOT
+SELECT employee_id, last_name, job_id, salary
+FROM employees
+WHERE job_id NOT IN ('IT_PROG','FI_Account','SA_REP');
+-- Retorna todos aqueles que NAO façam parte desta lista.
 
 
+-----------------------
+-----------------------
 
+--ORDER BY Utilizada para ordenar a linhas recuperadas.
+--ASC: Ordem Crescente, Default
+--DESC: Ordem Decrescente 
+-
+-- A cláusula ORDER BY deve ser usada sempre no final do comando SELECT(Query).
 
+SELECT last_name, job_id, department_id, hire_date
+FROM employees
+ORDER BY hire_date ASC; --Ordem padrão do SELECT
+
+SELECT last_name, job_id, department_id, hire_date
+FROM employees
+ORDER BY hire_date DESC; --Alteração para ordem Descrescente.
+--
+
+-- Tambem podemos ordenar utilizando a posição numérica da coluna:
+SELECT last_name, job_id, department_id, hire_date
+FROM employees
+ORDER BY 4;
+
+-- Se pode usar a cláusula ORDER BY para múltiplas colunas ou expressões.
+--- Ordenando por multiplas colunas
+SELECT last_name, department_id, salario
+FROM employees
+ORDER BY department_id, salario DESC;
+
+----------------------
+----------------------
+
+-- Podemos usar o '&' como variavel de substituição.
+-- Por exemplo:
+SELECT employee_id, last_name, salary, department_id
+FROM employees
+WHERE employee_id = &employee_id;
+-- Neste caso aparecerá um prompt de valor e como a variavel usada foi a employee_id
+-- você poderá escolher o ID desejado para a consulta.(101)(102)etc.
