@@ -135,3 +135,37 @@ FROM employees
 WHERE employee_id = &employee_id;
 -- Neste caso aparecerá um prompt de valor e como a variavel usada foi a employee_id
 -- você poderá escolher o ID desejado para a consulta.(101)(102)etc.
+
+-- Podemos também usar dois '&&', neste caso o prompt aparecerá somente uma vez e o valor escolhido para a query sera sempre o mesmo.
+SELECT employee_id, last_name, salary, department_id
+FROM employees
+WHERE employee_id = &&employee_id;
+-- Supondo que o valor inserido no prompt seja '101', toda vez que rodar esta query o valor pesquisado sera este.
+
+
+-- Caso o valor seja uma String, se é nessário a utilização de aspas simples na consulta com o '&'.
+SELECT employee_id, last_name, salary, department_id
+FROM employees
+WHERE job_id = '&job_id';
+-- Neste caso será possivel pesquisar por uma String.
+
+-----------------------
+
+-----------------------
+
+
+-- Dentro do SQL podemos utilziar variaveis usando a cláusula 'DEFINE';
+-- Sendo assim possivel trabalhar com valores fixos. Um exemplo disso é a utilização do '&'.
+
+DEFINE employee_id = 101
+
+SELECT employee_id, last_name, department_id, salary
+FROM employees
+WHERE employee_id = &employee_id;
+-- Neste caso não aparecera o prompt, pois o valor a ser pesquisado já foi definido como '101'
+
+-- Para remover o valor atribuido a variavel basta usar o 'UNDEFINE'
+
+UNDEFINE employee_id
+
+-----------------------
